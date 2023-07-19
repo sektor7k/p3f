@@ -7,4 +7,7 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['ws'],
   },
+  build: {
+    target: 'esnext'
+  }
 })
