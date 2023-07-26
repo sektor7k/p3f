@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
+import { FaTwitter, FaInstagram, FaLinkedinIn, FaGithub } from 'react-icons/fa'
 const Footer = () => {
   const date = new Date;
   const year = date.getFullYear();
@@ -25,6 +25,9 @@ const Footer = () => {
             <a style={{ textDecoration: "none" }} target="_blank" rel="noopener noreferrer" href="https://twitter.com/project3fusion" >
               <FaTwitter className='transition ease-in delay-50 text-sky-500 visited:text-sky-500 hover:text-sky-600 hover:scale-[110%]' size={30} />
             </a>
+            <a style={{ textDecoration: "none" }} target="_blank" rel="noopener noreferrer" href="https://github.com/project3fusion" >
+              <FaGithub className='transition ease-in delay-50 text-sky-500 visited:text-sky-500 hover:text-sky-600 hover:scale-[110%]' size={30} />
+            </a>
           </div>
         </div>
 
@@ -40,7 +43,7 @@ const Footer = () => {
         <div data-aos="fade-up" className='mt-10 w-[100%] md:w-[100%] lg:w-[100%] order-3 md:order-3 lg:order-3 text-base'>
           <div className='flex items-center justify-start'><h1 className='font-extrabold text-2xl text-blue-700 mr-3'>|</h1><h1 className='text-lg font-semibold'>Contact Us</h1></div>
           <p className='max-w-[16rem] pt-4 text'>Manisa/Turkey</p>
-          <p className='pt-2'>Mail : <a style={{ textDecoration: "none" }} href="mailto:games@castrum.istanbul" className='text-blue-700 ml-2 font-semibold'><span className='hover:text-gray-400 text-sky-500'>games@castrum.istanbul</span></a></p>
+          <p className='pt-2'>Mail : <a style={{ textDecoration: "none" }} href="mailto:games@castrum.istanbul" className='text-blue-700 ml-2 font-semibold'><span className='hover:text-gray-400 text-sky-500'>project3fusion@gmail.com</span></a></p>
         </div>
 
       </div>
