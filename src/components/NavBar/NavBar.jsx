@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { FiX } from "react-icons/fi";
 import ScrollStatus from "../scroll/ScrollStatus";
@@ -7,53 +7,59 @@ import { connect, disconnect } from '@argent/get-starknet';
 import { useEffect } from 'react';
 import './neonbutton.css'
 
-const connection = await connect();
+
 
 
 
 const NavBar = () => {
     const [connected, setConnected] = useState(false);
-    const [address, setAddress] = useState('');
+    const [address, setAddress] = useState("");
 
     useEffect(() => {
-        const checkLocalStorage = () => {
-            const isConnected = localStorage.getItem('connected') === 'true';
-            const savedAddress = localStorage.getItem('address');
-            if (isConnected && savedAddress) {
-                setConnected(true);
-                setAddress(savedAddress);
-            }
-        };
-        checkLocalStorage();
+        
+        const isConnected = localStorage.getItem("connected") === "true";
+        const savedAddress = localStorage.getItem("address");
+        if (isConnected && savedAddress) {
+            setConnected(true);
+            setAddress(savedAddress);
+          }
+        
+        
     }, []);
 
     const connectWallet = async () => {
-        const connection = await connect({ modalMode: "neverAsk", webWalletUrl: "https://web.argent.xyz" });
-
-        if (connection && connection.isConnected) {
+        try {
+          const connection = await connect();
+          if (connection && connection.isConnected) {
             setConnected(true);
             setAddress(connection.selectedAddress);
-            localStorage.setItem('connected', 'true');
-            localStorage.setItem('address', connection.selectedAddress);
+            localStorage.setItem("connected", "true");
+            localStorage.setItem("address", connection.selectedAddress);
+          }
+        } catch (error) {
+          console.error("Failed to connect wallet:", error);
         }
-    };
+      };
 
-    const disconnectWallet = () => {
-        localStorage.removeItem('connected');
-        localStorage.removeItem('address');
-        disconnect();
-        setConnected(false);
-        setAddress('');
-    };
+      const disconnectWallet = async () => {
+        try {
+          await disconnect();
+          localStorage.removeItem("connected");
+          localStorage.removeItem("address");
+          setConnected(false);
+          setAddress("");
+        } catch (error) {
+          console.error("Failed to disconnect wallet:", error);
+        }
+      };
 
-    const handleConnectButton = () => {
+      const handleConnectButton = () => {
         if (connected) {
-            disconnectWallet();
+          disconnectWallet();
         } else {
-            connectWallet();
+          connectWallet();
         }
-    };
-
+      };
 
 
 
