@@ -2,9 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import serverless from 'serverless-http';
 
-// geri kalan kod aynı şekilde devam eder...
-
-
 const app = express();
 
 app.use(cors());
@@ -20,4 +17,4 @@ app.post('/', (req, res) => {
     res.json({ message: "Veri başarıyla alındı!" });
 });
 
-module.exports = serverless(app);
+export default serverless(app);
