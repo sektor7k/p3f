@@ -1,6 +1,9 @@
-const express = require('express');
-const cors = require('cors');
-const serverless = require('serverless-http');
+import express from 'express';
+import cors from 'cors';
+import serverless from 'serverless-http';
+
+// geri kalan kod aynı şekilde devam eder...
+
 
 const app = express();
 
