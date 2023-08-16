@@ -1,20 +1,19 @@
-import express from 'express';
-import cors from 'cors';
 import serverless from 'serverless-http';
 
-const app = express();
+const Api = async (req, res) => {
+  document.title = 'Api P3F';
 
-app.use(cors());
-app.use(express.json()); 
-
-app.get('/', (req, res) => {
+  // GET isteği için cevap
+  if (req.method === 'GET') {
     console.log("GET isteği alındı.");
     res.json({ message: "Merhaba, bu bir API yanıtıdır!" });
-});
+  }
 
-app.post('/', (req, res) => {
+  // POST isteği için cevap
+  if (req.method === 'POST') {
     console.log("POST isteği alındı. Gönderilen veri:", req.body);
     res.json({ message: "Veri başarıyla alındı!" });
-});
+  }
+}
 
-export default serverless(app);
+export default serverless(Api);
