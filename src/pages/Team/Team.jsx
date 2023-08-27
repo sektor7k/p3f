@@ -46,7 +46,7 @@ const Team = () => {
       twitter: 'https://www.twitter.com',
       discord: "https://discord.com",
       about: "A web3 enthusiast and an upcoming software engineer.",
-      email: "lastceri@gmail.com",
+      email: "laceri@proton.me",
       id: "2"
     },
     {
